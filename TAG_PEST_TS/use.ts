@@ -2,23 +2,48 @@
 import * as classes from "./classes";
 
 //inits -----------------------------------------------------------------------------------------------------------------------------
-var weapons: classes.Weapon[] = [new classes.Weapon("rusty knife", 5, 1, 15), new classes.Weapon("old longsword", 3, 1, 15), new classes.Weapon("broken bow", 2, 1, 15)]
-var armors: classes.Armor[] = [new classes.Armor("leather armor", 3, 1, 10)]
+var weapons: classes.Weapon[] = [new classes.Weapon("rusty knife", 3, 1, 15), new classes.Weapon("old longsword", 3, 1, 15), new classes.Weapon("broken bow", 3, 1, 15),
+new classes.Weapon("High-Frequency Blade - Metal Gear Solid", 5, 1, 20), new classes.Weapon("Sword 'n' Shield - Monster Hunter", 7, 1, 24), new classes.Weapon("Keyblade - Kingdom Hearts", 10, 2, 60),
+new classes.Weapon("Scythe", 11, 2, 70), new classes.Weapon("goldsword", 20, 3, 175), new classes.Weapon("Charge Blade - Monster Hunter", 23, 3, 250),
+new classes.Weapon("diamondsword", 40, 4, 600), new classes.Weapon("Excalibur", 50, 4, 1500),
+new classes.Weapon("Light Saber - Star Wars", 80, 5, 5000), new classes.Weapon("Blades of Chaos - God of War", 75, 5, 4000), new classes.Weapon("Link's bow", 3, 1, 25),
+new classes.Weapon("broken crossbow", 2, 1, 20), new classes.Weapon("normal bow", 5, 2, 60), new classes.Weapon("Legolas' bow", 8, 2, 150),
+new classes.Weapon("Lysopp's slingshot", 15, 3, 350), new classes.Weapon("Hanzo's Storm Bow", 19, 3, 550), new classes.Weapon("War Bow - Horizon Zero Dawn", 25, 4, 1500),
+new classes.Weapon("Bowgun - Resident Evil", 30, 4, 2000), new classes.Weapon("Dragonbone Bow", 41, 5, 3500), new classes.Weapon("Hawkeye's bow", 43, 5, 4500),
+new classes.Weapon("Kitchen Knife", 7, 1, 25), new classes.Weapon("Zero's Dagger - Borderlands", 8, 1, 30), new classes.Weapon("Butterfly Knife - Team Fortress", 15, 2, 75),
+new classes.Weapon("Katarina's Knives - League of Legends", 17, 2, 100), new classes.Weapon("Twin Daggers - Dead Cells", 30, 3, 350), new classes.Weapon("Shadowflame Knife - Terraria", 27, 3, 500),
+new classes.Weapon("Scream's knife", 65, 4, 1250), new classes.Weapon("Dual Hidden Blades - Assassin's Creed", 75, 4, 2000), new classes.Weapon("Hunter's Knife - Monster Hunter World", 90, 5, 3500),
+new classes.Weapon("dual Karambit", 100, 5, 5000),]
+
+var armors: classes.Armor[] = [new classes.Armor("leather armor", 3, 1, 10), new classes.Armor("Jagras Armor - Monster Hunter", 6, 1, 17), new classes.Armor("Nanosuit - Crysis", 9, 1, 30),
+new classes.Armor("Scorpion Suit - Dead Space", 11, 1, 40), new classes.Armor("Dodogama Armor - Monster Hunter", 12, 1, 45), new classes.Armor("iron armor", 13, 2, 50),
+new classes.Armor("ARS Suit - Vanquish", 16, 2, 80), new classes.Armor("Gala Suit - Monster Hunter", 18, 2, 110), new classes.Armor("Samus' Power Suit - Metroid", 20, 2, 125),
+new classes.Armor("Legiana Armor - Monster Hunter", 21, 2, 130), new classes.Armor("gold armor", 25, 3, 150), new classes.Armor("Helghast - Killzone", 30, 3, 200),
+new classes.Armor("Assault Armor - Titanfall", 37, 3, 325), new classes.Armor("Madness Armor - The Elder Scrolls IV", 40, 3, 350), new classes.Armor("Kushala Armor - Monster Hunter", 48, 3, 450),
+new classes.Armor("diamond armor", 50, 4, 500), new classes.Armor("Big Daddy - BioShock 2", 60, 4, 750), new classes.Armor("Diablos Armor - Monster Hunter", 65, 4, 1000),
+new classes.Armor("Space Marine - Warhammer", 70, 4, 1250), new classes.Armor("Daedric Armor - Elder Scrolls V: Skyrim", 75, 4, 1500), new classes.Armor("netherite armor", 100, 5, 2500),
+new classes.Armor("Kirin Armor - Monster Hunter", 130, 5, 3500), new classes.Armor("Ember Prime - Warframe", 140, 5, 4000), new classes.Armor("Tier 5 Warlock Armor - World of Warcraft", 150, 5, 5000),
+new classes.Armor("Thor's armor", 250, 5, 10000),]
+
 var towns: String[] = ["Brandenburg an der Havel", "Gotham", "Metropolis", "München", "Berlin", "New York", "Rifton", "Weisslauf"]
 var dungeons: String[] = ["cave of fear", "spidernest", "forest of darkness", "Bandit - assemblypoint", "Warped Forest", "slime's home", "beast forest"]
+
 var enemies: classes.Enemy[] = [new classes.Enemy("slime", 2, 5, 25, 3), new classes.Enemy("bandit", 3, 7, 30, 5),
 new classes.Enemy("guard", 3, 10, 50, 10), new classes.Enemy("Jagras", 5, 25, 70, 15), new classes.Enemy("zombie", 5, 7, 30, 5),
 new classes.Enemy("skeleton", 5, 7, 30, 5), new classes.Enemy("Creeper", 9, 8, 50, 7), new classes.Enemy("spider", 3, 4, 20, 3),
 new classes.Enemy("bat", 1, 3, 15, 2), new classes.Enemy("swordsman", 4, 7, 30, 7), new classes.Enemy("archer", 4, 5, 30, 5),
 new classes.Enemy("assassian", 10, 5, 30, 5), new classes.Enemy("gunsman", 3, 7, 30, 5), new classes.Enemy("beast", 7, 15, 50, 15),
 new classes.Enemy("samurai", 8, 12, 75, 25), new classes.Enemy("hunter", 6, 7, 30, 5), new classes.Enemy("dog", 2, 3, 15, 3),]
+
 var bosses: classes.Enemy[] = [new classes.Enemy("King", 12, 25, 150, 75), new classes.Enemy("Prince", 15, 20, 125, 50),
 new classes.Enemy("Kirin", 20, 50, 150, 75), new classes.Enemy("Legiana", 4, 20, 75, 40), new classes.Enemy("Beastmaster", 9, 16, 90, 50),]
 
 enum difficulty {
     easy = 3,
-    normal = 4,
-    hard = 5,
+    advanced = 4,
+    normal = 5,
+    hard = 6,
+    extreme = 7,
 }
 
 //general overall methods -----------------------------------------------------------------------------------------------------------------------------
@@ -512,12 +537,16 @@ export async function goDungeon(p: classes.Player) {
     let dif
     let win
 
-    if (p.lvl < 10)
+    if (p.lvl <= 5)
         dif = difficulty.easy
-    else if (p.lvl >= 20)
+    else if (p.lvl <= 10)
+        dif = difficulty.advanced
+    else if (p.lvl <= 15)
+        dif = difficulty.normal
+    else if (p.lvl <= 20)
         dif = difficulty.hard
     else
-        dif = difficulty.normal
+        dif = difficulty.extreme
 
     dungeonEntry(name)
 
@@ -551,12 +580,18 @@ export async function goDungeon(p: classes.Player) {
             dungeonDeafetedBoss(boss)
             let loot = randFromIntervall(0, 1)
             if (loot == 0) {
-                index = randFromIntervall(0, armors.length - 1)
-                let armor = armors[index]
+                let armor
+                do {
+                    index = randFromIntervall(0, armors.length - 1)
+                    armor = armors[index]
+                } while (armor.rarity > (dif - 3) && armor.rarity <= (dif - 2));
                 await lootChest(p, dif * 75, dif, armor)
             } else {
-                index = randFromIntervall(0, weapons.length - 1)
-                let weapon = weapons[index]
+                let weapon
+                do {
+                    index = randFromIntervall(0, weapons.length - 1)
+                    weapon = weapons[index]
+                } while (weapon.rarity > (dif - 3) && weapon.rarity <= (dif - 2));
                 await lootChest(p, dif * 75, dif, weapon)
             }
             dungeonExit(name)
@@ -874,3 +909,5 @@ async function upgradeArm(player: classes.Player) {
         }
     } while (valid === false)
 }
+
+export {buy, healPot}

@@ -153,7 +153,7 @@ class Player {
             switch (String(answer).toLowerCase()) {
                 case '1':
                     console.log('The weapon which stands for silent death.');
-                    this.currentWeapon = new Weapon("rusty knife", 5, 1, 15);
+                    this.currentWeapon = new Weapon("rusty knife", 3, 1, 15);
                     valid = true;
                     break;
                 case '2':
@@ -163,7 +163,7 @@ class Player {
                     break;
                 case '3':
                     console.log('The best starting weapon as an archer.');
-                    this.currentWeapon = new Weapon("broken bow", 2, 1, 15);
+                    this.currentWeapon = new Weapon("broken bow", 3, 1, 15);
                     valid = true;
                     break;
                 default:
