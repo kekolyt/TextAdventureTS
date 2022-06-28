@@ -73,7 +73,7 @@ function healPot(player: classes.Player) //heal-method of a potion
 
 //Dungeon methods -----------------------------------------------------------------------------------------------------------------------------
 
-export function lootChest(player: classes.Player, gold: number, potNum: number, loot: any) //loot a chest with an armor as drop
+export async function lootChest(player: classes.Player, gold: number, potNum: number, loot: any) //loot a chest with an armor as drop
 {
     let lootname
     if (loot instanceof classes.Armor)
@@ -95,9 +95,9 @@ export function lootChest(player: classes.Player, gold: number, potNum: number, 
     }
 
     if (lootname == 'armor')
-        lootArmor(player, loot)
+        await lootArmor(player, loot)
     if (lootname == 'weapon')
-        lootWeapon(player, loot)
+        await lootWeapon(player, loot)
 }
 
 async function lootArmor(p: classes.Player, a: classes.Armor) {
@@ -509,7 +509,7 @@ export async function goDungeon(p: classes.Player) {
     let lvls: number[] = [p.lvl - 2, p.lvl - 1, p.lvl, p.lvl + 1, p.lvl + 2]
     let name = dungeons[index]
     let dif
-    let win
+    let win = 1
 
     if (p.lvl <= 5)
         dif = difficulty.easy
@@ -529,7 +529,8 @@ export async function goDungeon(p: classes.Player) {
         let enemy = enemies[index]
         index = randFromIntervall(0, lvls.length - 1)
         enemy.lvl = lvls[index]
-        win = await fight(p, enemy)
+		if (win == 1)
+			win = await fight(p, enemy)
         if (win == 1) {
             dungeonDeafetedEnemy(enemy)
             win = await leave()
@@ -558,14 +559,14 @@ export async function goDungeon(p: classes.Player) {
                 do {
                     index = randFromIntervall(0, armors.length - 1)
                     armor = armors[index]
-                } while (armor.rarity > (dif - 3) && armor.rarity <= (dif - 2));
+                } while (armor.rarity < (dif - 3) && armor.rarity >= (dif - 2));
                 await lootChest(p, dif * 75, dif, armor)
             } else {
                 let weapon
                 do {
                     index = randFromIntervall(0, weapons.length - 1)
                     weapon = weapons[index]
-                } while (weapon.rarity > (dif - 3) && weapon.rarity <= (dif - 2));
+                } while (weapon.rarity < (dif - 3) && weapon.rarity >= (dif - 2));
                 await lootChest(p, dif * 75, dif, weapon)
             }
             dungeonExit(name)
